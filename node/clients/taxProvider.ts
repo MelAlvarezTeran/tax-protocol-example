@@ -14,45 +14,45 @@ export class TaxProvider extends ExternalClient {
     if (taxRate !== undefined) {
       taxRes =  _orderInformation.items.map(function(item){
           return {
-            "id": item.id,
-            "taxes": [
+            'id': item.id,
+            'taxes': [
               {  
-                "name": `Region ${taxRate.TaxRegionName} - State Tax`,  
-                "description": `Region ${taxRate.TaxRegionName} - State Tax`,  
-                "rate": taxRate.StateRate,  
-                "value": (item.itemPrice*taxRate.StateRate)*item.quantity,  
-                "jurisCode": "jurisCode",  
-                "jurisType": "jurisType",  
-                "jurisName": "jurisName"  
+                'name': `Region ${taxRate.TaxRegionName} - State Tax`,  
+                'description': `Region ${taxRate.TaxRegionName} - State Tax`,  
+                'rate': taxRate.StateRate,  
+                'value': (item.itemPrice*taxRate.StateRate)*item.quantity,  
+                'jurisCode': 'jurisCode',  
+                'jurisType': 'jurisType',  
+                'jurisName': 'jurisName',  
               },
               {  
-                "name": `Region ${taxRate.TaxRegionName} - County Tax`,  
-                "description": `Region Tax ${taxRate.TaxRegionName} - County Tax`,  
-                "rate": taxRate.EstimatedCountyRate,  
-                "value": (item.itemPrice*taxRate.EstimatedCountyRate)*item.quantity,  
-                "jurisCode": "jurisCode",  
-                "jurisType": "jurisType",  
-                "jurisName": "jurisName"  
+                'name': `Region ${taxRate.TaxRegionName} - County Tax`,  
+                'description': `Region Tax ${taxRate.TaxRegionName} - County Tax`,  
+                'rate': taxRate.EstimatedCountyRate,  
+                'value': (item.itemPrice*taxRate.EstimatedCountyRate)*item.quantity,  
+                'jurisCode': 'jurisCode',  
+                'jurisType': 'jurisType',  
+                'jurisName': 'jurisName',  
               },
               {  
-                "name": `Region ${taxRate.TaxRegionName} - City Tax`,  
-                "description": `Region Tax ${taxRate.TaxRegionName} - City Tax`,  
-                "rate": taxRate.EstimatedCityRate,  
-                "value": (item.itemPrice*taxRate.EstimatedCityRate)*item.quantity,  
-                "jurisCode": "jurisCode",  
-                "jurisType": "jurisType",  
-                "jurisName": "jurisName"  
+                'name': `Region ${taxRate.TaxRegionName} - City Tax`,  
+                'description': `Region Tax ${taxRate.TaxRegionName} - City Tax`,  
+                'rate': taxRate.EstimatedCityRate,  
+                'value': (item.itemPrice*taxRate.EstimatedCityRate)*item.quantity,  
+                'jurisCode': 'jurisCode',  
+                'jurisType': 'jurisType',  
+                'jurisName': 'jurisName',  
               },
               {  
-                "name": `Region ${taxRate.TaxRegionName} - Special Rate`,  
-                "description": `Region Tax ${taxRate.TaxRegionName} - Special Rate`,  
-                "rate": taxRate.EstimatedSpecialRate,  
-                "value": (item.itemPrice*taxRate.EstimatedSpecialRate)*item.quantity,  
-                "jurisCode": "jurisCode",  
-                "jurisType": "jurisType",  
-                "jurisName": "jurisName"  
+                'name': `Region ${taxRate.TaxRegionName} - Special Rate`,  
+                'description': `Region Tax ${taxRate.TaxRegionName} - Special Rate`,  
+                'rate': taxRate.EstimatedSpecialRate,  
+                'value': (item.itemPrice*taxRate.EstimatedSpecialRate)*item.quantity,  
+                'jurisCode': 'jurisCode',  
+                'jurisType': 'jurisType',  
+                'jurisName': 'jurisName',  
               },
-            ]
+            ],
           }
       })
 

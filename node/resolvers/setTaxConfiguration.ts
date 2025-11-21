@@ -30,7 +30,7 @@ export async function setTaxConfiguration(
     return deactivateProvider(orderForm, checkout, userToken)
   }
   throw new UserInputError(
-    "operation must be either 'activate' or 'deactivate'"
+    'operation must be either \'activate\' or \'deactivate\''
   )
 }
 
