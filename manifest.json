@@ -1,14 +1,14 @@
 {
   "name": "tax-protocol-example",
-  "vendor": "vtex",
-  "version": "1.0.3",
+  "vendor": "tiendademelio",
+  "version": "0.0.0",
   "title": "Tax Protocol Example",
   "description": "Reference app for Tax Protocol Services",
   "mustUpdateAt": "2018-01-04",
   "categories": [],
   "dependencies": {},
   "builders": {
-    "graphql": "1.x",
+    "graphql": "2.x",
     "node": "6.x",
     "docs": "0.x"
   },
@@ -16,6 +16,16 @@
     "prereleasy": "bash lint.sh"
   },
   "credentialType": "absolute",
+  "billingOptions": {
+    "type": "free",
+    "support": {
+      "email": "support@com",
+      "url": "https://support.com/hc/requests"
+    },
+    "availableCountries": [
+      "*"
+    ]
+  },
   "policies": [
     {
       "name": "SaveOrderFormConfiguration"

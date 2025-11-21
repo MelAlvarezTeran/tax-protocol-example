@@ -1,4 +1,5 @@
 import { ExternalClient, InstanceOptions, IOContext } from '@vtex/api'
+import { sampleRates } from '../utils/sampleTaxRates'
 
 export class TaxProvider extends ExternalClient {
   constructor(ctx: IOContext, options?: InstanceOptions) {
@@ -6,25 +7,60 @@ export class TaxProvider extends ExternalClient {
     super('baseURL', ctx, options)
   }
 
-  public getTaxInformation(_: unknown) {
-    /*
-      This is the method that will be used to connect to the provider API
-      and get the taxes values to be parsed later on in the orderTax handler.
-      For instance, it's returning a mocked object that it's already in the format
-      that VTEX expects when it's a sync request.
-      It receives the request in the format that the provider expects. Replace the
-      unknown with the typing of your provider
-    */
-    return [
-      {
-        id: '0',
-        taxes: [
-          {
-            name: 'TAX 1',
-            value: 100,
-          },
-        ],
-      },
-    ]
+  public getTaxInformation(_orderInformation: CheckoutRequest) {
+    const taxRate = sampleRates.find(({ ZipCode }) => ZipCode == _orderInformation.shippingDestination.postalCode as any)
+    let taxRes: ItemTaxResponse[] 
+    
+    if (taxRate !== undefined) {
+      taxRes =  _orderInformation.items.map(function(item){
+          return {
+            "id": item.id,
+            "taxes": [
+              {  
+                "name": `Region ${taxRate.TaxRegionName} - State Tax`,  
+                "description": `Region ${taxRate.TaxRegionName} - State Tax`,  
+                "rate": taxRate.StateRate,  
+                "value": (item.itemPrice*taxRate.StateRate)*item.quantity,  
+                "jurisCode": "jurisCode",  
+                "jurisType": "jurisType",  
+                "jurisName": "jurisName"  
+              },
+              {  
+                "name": `Region ${taxRate.TaxRegionName} - County Tax`,  
+                "description": `Region Tax ${taxRate.TaxRegionName} - County Tax`,  
+                "rate": taxRate.EstimatedCountyRate,  
+                "value": (item.itemPrice*taxRate.EstimatedCountyRate)*item.quantity,  
+                "jurisCode": "jurisCode",  
+                "jurisType": "jurisType",  
+                "jurisName": "jurisName"  
+              },
+              {  
+                "name": `Region ${taxRate.TaxRegionName} - City Tax`,  
+                "description": `Region Tax ${taxRate.TaxRegionName} - City Tax`,  
+                "rate": taxRate.EstimatedCityRate,  
+                "value": (item.itemPrice*taxRate.EstimatedCityRate)*item.quantity,  
+                "jurisCode": "jurisCode",  
+                "jurisType": "jurisType",  
+                "jurisName": "jurisName"  
+              },
+              {  
+                "name": `Region ${taxRate.TaxRegionName} - Special Rate`,  
+                "description": `Region Tax ${taxRate.TaxRegionName} - Special Rate`,  
+                "rate": taxRate.EstimatedSpecialRate,  
+                "value": (item.itemPrice*taxRate.EstimatedSpecialRate)*item.quantity,  
+                "jurisCode": "jurisCode",  
+                "jurisType": "jurisType",  
+                "jurisName": "jurisName"  
+              },
+            ]
+          }
+      })
+
+    } else {
+      taxRes = []
+    }
+    
+
+    return taxRes
   }
 }

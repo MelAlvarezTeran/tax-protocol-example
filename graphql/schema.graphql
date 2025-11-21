@@ -1,9 +1,11 @@
 type Query {
   getTaxConfiguration: TaxConfiguration
+  @auth(scope: PUBLIC)
 }
 
 type Mutation {
   setTaxConfiguration(operation: String): OrderFormConfiguration
+  @auth(scope: PUBLIC)
 }
 
 type OrderFormConfiguration {
