@@ -7,12 +7,13 @@ export class TaxProvider extends ExternalClient {
     super('baseURL', ctx, options)
   }
 
-  public getTaxInformation(_orderInformation: CheckoutRequest) {
-    const taxRate = sampleRates.find(({ ZipCode }) => ZipCode == _orderInformation.shippingDestination.postalCode as any)
+  public getTaxInformation(orderInformation: CheckoutRequest) {
+    const taxRate = sampleRates.find(({ ZipCode }) => JSON.stringify(ZipCode) === orderInformation.shippingDestination.postalCode)
+
     let taxRes: ItemTaxResponse[] 
     
     if (taxRate !== undefined) {
-      taxRes =  _orderInformation.items.map(function(item){
+      taxRes =  orderInformation.items.map((item) => {
           return {
             'id': item.id,
             'taxes': [
