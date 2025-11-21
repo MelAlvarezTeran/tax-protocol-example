@@ -8,7 +8,7 @@
     "@types/node": "^20.0.0",
     "@vtex/api": "^7.0.0",
     "@vtex/test-tools": "^1.0.0",
-    "tiendademelio.tax-protocol-example": "https://taxservice--tiendademelio.myvtex.com/_v/private/typings/linked/v1/tiendademelio.tax-protocol-example@0.0.0+build1763739770/public/@types/tiendademelio.tax-protocol-example",
+    "tiendademelio.tax-protocol-example": "https://taxservice--tiendademelio.myvtex.com/_v/private/typings/linked/v1/tiendademelio.tax-protocol-example@0.0.0+build1763742235/public/@types/tiendademelio.tax-protocol-example",
     "tslint": "^5.14.0",
     "tslint-config-vtex": "^2.1.0",
     "typescript": "5.5.3"
