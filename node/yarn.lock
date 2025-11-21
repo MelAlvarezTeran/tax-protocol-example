@@ -6282,9 +6282,9 @@ throat@^4.0.0:
   resolved "https://registry.yarnpkg.com/throat/-/throat-4.1.0.tgz#89037cbc92c56ab18926e6ba4cbb200e15672a6a"
   integrity sha1-iQN8vJLFarGJJua6TLsgDhVnKmo=
 
-"tiendademelio.tax-protocol-example@https://taxservice--tiendademelio.myvtex.com/_v/private/typings/linked/v1/tiendademelio.tax-protocol-example@0.0.0+build1763742235/public/@types/tiendademelio.tax-protocol-example":
+"tiendademelio.tax-protocol-example@https://taxservice--tiendademelio.myvtex.com/_v/private/typings/linked/v1/tiendademelio.tax-protocol-example@0.0.0+build1763742748/public/@types/tiendademelio.tax-protocol-example":
   version "0.0.0"
-  resolved "https://taxservice--tiendademelio.myvtex.com/_v/private/typings/linked/v1/tiendademelio.tax-protocol-example@0.0.0+build1763742235/public/@types/tiendademelio.tax-protocol-example#a3689ad15667db013131d48307fe0267e3fa5308"
+  resolved "https://taxservice--tiendademelio.myvtex.com/_v/private/typings/linked/v1/tiendademelio.tax-protocol-example@0.0.0+build1763742748/public/@types/tiendademelio.tax-protocol-example#51ca514b2574e1e3df94bc8e7d16ce72cdd1adbd"
 
 tmpl@1.0.x:
   version "1.0.5"
